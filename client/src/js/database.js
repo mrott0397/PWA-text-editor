@@ -1,6 +1,7 @@
 import { openDB } from 'idb';
 
 const initdb = async () =>
+// creates a new database called jate with an object store called jate and a key path of id and autoIncrement set to true (so that each new record will have a unique id) if the database doesn't already exist (if it does, it will just open the existing database) and logs a message to the console to let us know what happened 
   openDB('jate', 1, {
     upgrade(db) {
       if (db.objectStoreNames.contains('jate')) {
@@ -28,8 +29,8 @@ export const putDb = async (content) => {
 
   const result = await request;
   
-  console.log( 'result.value', result);
-  return result;
+  console.log( 'Data saved to the database', result);
+  // return result;
 };
 
 
